@@ -1,6 +1,6 @@
-const mysql = require("mysql");
 const express = require("express");
 const router = express.Router();
+const mysql = require("mysql");
 const dbConfig = require("../config/dbPool");
 
 //테이블에 저장된 모든 영화정보를 조회
