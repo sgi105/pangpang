@@ -1,23 +1,4 @@
-Skip to content
- 
-Search or jump to…
 
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@ruddls00114 
-0
-0 2 ruddls00114/easyfunart
-forked from DongramO/easyfunart
- Code  Pull requests 0  Projects 0  Wiki  Insights  Settings
-easyfunart/src/db/model/users.js
-@EunYeongKim EunYeongKim modi eunyeong
-6bc1d4a on 12 Jan 2018
-@EunYeongKim @ruddls00114
-Executable File  164 lines (155 sloc)  4.77 KB
-    
 exports.getUserInfo = function getUserInfo(snsToken, connection) {
   return new Promise((resolve, reject) => {
     console.log('snsToken', snsToken)
@@ -182,15 +163,3 @@ exports.insertPreUserInfo = function(userId, connection){
     })
   })
 }
-© 2019 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
