@@ -12,13 +12,13 @@ router.get('/', (req, res) => {
     connection.query(selectAllQuery, [parents_id], (err, result) => {
         if (err) {
             res.status(500).send({
-                stat: "fail",
+                success: false,
                 msg: "loading message data fail"
             });
             connection.end();
         } else {
             res.status(200).send({
-                success: "success",
+                success: true,
                 msg: "successful loading  message data",
                 data: result,
             });
@@ -46,7 +46,7 @@ router.post('/', upload.single('image'), (req, res) => {
     connection.query(selectParentsId, [child_id], (err, data) => {
         if (err) {
             res.status(500).send({
-                stat: "fail",
+                success: false,
                 msg: "NULL Parents ID"
             });
             connection.end();
@@ -57,14 +57,18 @@ router.post('/', upload.single('image'), (req, res) => {
                 if (err) {
                     console.log(err);
                     res.status(500).send({
-                        stat: "fail",
+                        success: false,
                         msg: "ERROR : insert message"
                     });
                     connection.end();
                 } else {
+                    console.log(result.insertId);
                     res.status(200).send({
-                        success: "success",
+                        success: true,
                         msg: "successful insert  message data",
+                        data:{
+                            message_id: result.insertId
+                        }
                     });
                     connection.end();
                 }
