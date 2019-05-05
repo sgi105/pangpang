@@ -20,6 +20,7 @@ doc/**/*.pdf
 
 
 # Server파트원들을 위한 ignore List
+module/*
 node_modules/*
 config/*
 lgot/*
