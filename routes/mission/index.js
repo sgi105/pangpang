@@ -4,12 +4,12 @@ const mysql = require("mysql");
 const dbConfig = require("../../config/dbPool");
 const upload = require("../../module/multer.js");
 
-router.post("/", upload.single("reward"), (req, res) => {
+router.post("/", upload.single("reward_img"), (req, res) => {
   let connection = mysql.createConnection(dbConfig);
 
   // request 읽기
-  const { parents_id, content, deadline } = req.body;
-  const reward = req.file.location;
+  const { parents_id, content, deadline,reward } = req.body;
+  const reward_img = req.file.location;
   console.log("!!!!!!!!!!!!!!!!!!" + req.file.location);
 
   // const reward = jsonidfy(req.file);
@@ -26,6 +26,7 @@ router.post("/", upload.single("reward"), (req, res) => {
         id: 0,
         content,
         reward,
+        reward_img,
         deadline,
         count: 0,
         parents_id,
@@ -83,15 +84,7 @@ router.get("/", (req, res) => {
     } else {
       if (result.length == 0) return res.status(404).send("Not found");
       console.log(result);
-      //   let {
-      //     id: mission_id,
-      //     content,
-      //     reward,
-      //     deadline,
-      //     count,
-      //     parents_id,
-      //     child_id
-      //   } = result;
+
       res.status(200).send({
         success: true,
         msg: "successful loading mission data",
