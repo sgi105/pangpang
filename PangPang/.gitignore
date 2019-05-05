@@ -15,7 +15,7 @@ build/
 doc/*.txt
 
 # doc 디렉토리 아래의 모든 .pdf 파일을 무시 
-doc/**/*.pdf
+doc/**/*.pdf  
 
 
 
